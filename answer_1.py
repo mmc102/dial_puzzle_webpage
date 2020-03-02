@@ -29,7 +29,7 @@ class Trie:
         print (self.head)
 dictionary = Trie()
 words = []
-with open("google-10000-english-usa-no-swears.txt") as word_file:    #this is not working 
+with open("google-10000-english-usa-no-swears.txt") as word_file:    
     for word in word_file:
         words.append(word.strip('\n'))
 print(words)   

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+var DialOne_1
+var DialTwo_1;
+var DialTwo_2;
+var DialTwo_3;
+
+function startGame() {
+    DialOne_1 = new component(50,270, "puzzle dial1.jpg",0,0, "image")
+    DialTwo_1 = new component(50, 270, "puzzle dial2.jpg", 50, 0, "image");
+    DialTwo_2 = new component(50, 270, "puzzle dial2.jpg", 50, 270, "image");
+    DialTwo_3 = new component(50, 270, "puzzle dial2.jpg", 50, -270, "image");
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (type == "image") {
+            ctx.drawImage(this.image, 
+                this.x, 
+                this.y,
+                this.width, this.height);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;        
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    DialOne_1.newPos();
+    DialOne_1.update();
+    DialTwo_1.newPos();
+    DialTwo_1.update();
+    DialTwo_2.newPos();
+    DialTwo_2.update();
+    DialTwo_3.newPos();
+    DialTwo_3.update();
+}
+
+function moveup() {
+    DialTwo_1.speedY = -5;
+    DialTwo_2.speedY = -5;
+    DialTwo_3.speedY = -5; 
+}
+
+function movedown() {
+    DialTwo_1.speedY = 5;
+    DialTwo_2.speedY = 5; 
+    DialTwo_3.speedY = 5;
+}
+
+
+
+function clearmove() {
+    DialTwo_1.speedX = 0; 
+    DialTwo_1.speedY = 0;
+    DialTwo_2.speedX = 0; 
+    DialTwo_2.speedY = 0; 
+    DialTwo_3.speedX = 0; 
+    DialTwo_3.speedY = 0; 
+}
+</script>
+<div style="text-align:center;width:480px;">
+  <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
+  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+</div>
+
+<p>need to add edge case behavior to loop the second image once it is fully off screen</p>
+
+</body>
+</html>

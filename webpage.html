@@ -11,23 +11,114 @@ canvas {
 </head>
 <body onload="startGame()">
 <script>
-var DialOne_1
-var DialTwo_1;
-var DialTwo_2;
-var DialTwo_3;
+var Dial1_1
+
+var Dial2_1;
+var Dial2_2;
+var Dial2_3;
+
+var Dial3_1;
+var Dial3_2;
+var Dial3_3;
+
+var Dial4_1;
+var Dial4_2;
+var Dial4_3;
+
+var Dial5_1;
+var Dial5_2;
+var Dial5_3;
+
+var Dial6_1;
+var Dial6_2;
+var Dial6_3;
+
+var Dial6_1;
+var Dial6_2;
+var Dial6_3;
+
+var Dial7_1;
+var Dial7_2;
+var Dial7_3;
+
+var Dial8_1;
+var Dial8_2;
+var Dial8_3;
+
+var Dial9_1;
+var Dial9_2;
+var Dial9_3;
+
+var Dial10_1;
+var Dial10_2;
+var Dial10_3;
+
+var Dial11_1;
+var Dial11_2;
+var Dial11_3;
+
+var Dial12_1;
+var Dial12_2;
+var Dial12_3;
 
 function startGame() {
-    DialOne_1 = new component(50,270, "puzzle dial1.jpg",0,0, "image")
-    DialTwo_1 = new component(50, 270, "puzzle dial2.jpg", 50, 0, "image");
-    DialTwo_2 = new component(50, 270, "puzzle dial2.jpg", 50, 270, "image");
-    DialTwo_3 = new component(50, 270, "puzzle dial2.jpg", 50, -270, "image");
+    Dial1_1 = new component(50,270, "puzzle dial1.jpg",0,0, "image")
+    
+    Dial2_1 = new component(50, 270, "puzzle dial2.jpg", 50, 0, "image");
+    Dial2_2 = new component(50, 270, "puzzle dial2.jpg", 50, 270, "image");
+    Dial2_3 = new component(50, 270, "puzzle dial2.jpg", 50, -270, "image");
+    
+    Dial3_1 = new component(50, 270, "puzzle2.jpg", 100, 0, "image");
+    Dial3_2 = new component(50, 270, "puzzle2.jpg", 100, 270, "image");
+    Dial3_3 = new component(50, 270, "puzzle2.jpg", 100, -270, "image");
+    
+    Dial4_1 = new component(50, 270, "puzzle3.jpg", 150, 0, "image");
+    Dial4_2 = new component(50, 270, "puzzle3.jpg", 150, 270, "image");
+    Dial4_3 = new component(50, 270, "puzzle3.jpg", 150, -270, "image");
+    
+    Dial5_1 = new component(50, 270, "puzzle4.jpg", 200, 0, "image");
+    Dial5_2 = new component(50, 270, "puzzle4.jpg", 200, 270, "image");
+    Dial5_3 = new component(50, 270, "puzzle4.jpg", 200, -270, "image");
+    
+    Dial6_1 = new component(50, 270, "puzzle5.jpg", 250, 0, "image");
+    Dial6_2 = new component(50, 270, "puzzle5.jpg", 250, 270, "image");
+    Dial6_3 = new component(50, 270, "puzzle5.jpg", 250, -270, "image");
+    
+    Dial7_1 = new component(50, 270, "puzzle6.jpg", 300, 0, "image");
+    Dial7_2 = new component(50, 270, "puzzle6.jpg", 300, 270, "image");
+    Dial7_3 = new component(50, 270, "puzzle6.jpg", 300, -270, "image");
+    
+    Dial8_1 = new component(50, 270, "puzzle7.jpg", 350, 0, "image");
+    Dial8_2 = new component(50, 270, "puzzle7.jpg", 350, 270, "image");
+    Dial8_3 = new component(50, 270, "puzzle7.jpg", 350, -270, "image");
+    
+    Dial9_1 = new component(50, 270, "puzzle8.jpg", 400, 0, "image");
+    Dial9_2 = new component(50, 270, "puzzle8.jpg", 400, 270, "image");
+    Dial9_3 = new component(50, 270, "puzzle8.jpg", 400, -270, "image");
+
+    Dial10_1 = new component(50, 270, "puzzle9.jpg", 450, 0, "image");
+    Dial10_2 = new component(50, 270, "puzzle9.jpg", 450, 270, "image");
+    Dial10_3 = new component(50, 270, "puzzle9.jpg", 450, -270, "image");
+    
+    Dial11_1 = new component(50, 270, "puzzle10.jpg", 500, 0, "image");
+    Dial11_2 = new component(50, 270, "puzzle10.jpg", 500, 270, "image");
+    Dial11_3 = new component(50, 270, "puzzle10.jpg", 500, -270, "image");
+    
+    Dial12_1 = new component(50, 270, "puzzle11.jpg", 550, 0, "image");
+    Dial12_2 = new component(50, 270, "puzzle11.jpg", 550, 270, "image");
+    Dial12_3 = new component(50, 270, "puzzle11.jpg", 550, -270, "image");
+
+    Dial13_1 = new component(50, 270, "puzzle12.jpg", 600, 0, "image");
+    Dial13_2 = new component(50, 270, "puzzle12.jpg", 600, 270, "image");
+    Dial13_3 = new component(50, 270, "puzzle12.jpg", 600, -270, "image");
+
     myGameArea.start();
 }
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 480;
+        this.canvas.width = 650;
         this.canvas.height = 270;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
@@ -79,44 +170,389 @@ function component(width, height, color, x, y, type) {
 
 function updateGameArea() {
     myGameArea.clear();
-    DialOne_1.newPos();
-    DialOne_1.update();
-    DialTwo_1.newPos();
-    DialTwo_1.update();
-    DialTwo_2.newPos();
-    DialTwo_2.update();
-    DialTwo_3.newPos();
-    DialTwo_3.update();
+    Dial1_1.newPos();
+    Dial1_1.update();
+    Dial2_1.newPos();
+    Dial2_1.update();
+    Dial2_2.newPos();
+    Dial2_2.update();
+    Dial2_3.newPos();
+    Dial2_3.update();
+    Dial3_1.newPos();
+    Dial3_1.update();
+    Dial3_2.newPos();
+    Dial3_2.update();
+    Dial3_3.newPos();
+    Dial3_3.update();
+    Dial4_1.newPos();
+    Dial4_1.update();
+    Dial4_2.newPos();
+    Dial4_2.update();
+    Dial4_3.newPos();
+    Dial4_3.update();
+    Dial5_1.newPos();
+    Dial5_1.update();
+    Dial5_2.newPos();
+    Dial5_2.update();
+    Dial5_3.newPos();
+    Dial5_3.update();
+    Dial6_1.newPos();
+    Dial6_1.update();
+    Dial6_2.newPos();
+    Dial6_2.update();
+    Dial6_3.newPos();
+    Dial6_3.update();
+    Dial7_1.newPos();
+    Dial7_1.update();
+    Dial7_2.newPos();
+    Dial7_2.update();
+    Dial7_3.newPos();
+    Dial7_3.update();
+    Dial8_1.newPos();
+    Dial8_1.update();
+    Dial8_2.newPos();
+    Dial8_2.update();
+    Dial8_3.newPos();
+    Dial8_3.update();
+    Dial9_1.newPos();
+    Dial9_1.update();
+    Dial9_2.newPos();
+    Dial9_2.update();
+    Dial9_3.newPos();
+    Dial9_3.update();
+    Dial10_1.newPos();
+    Dial10_1.update();
+    Dial10_2.newPos();
+    Dial10_2.update();
+    Dial10_3.newPos();
+    Dial10_3.update();
+    Dial11_1.newPos();
+    Dial11_1.update();
+    Dial11_2.newPos();
+    Dial11_2.update();
+    Dial11_3.newPos();
+    Dial11_3.update();
+    Dial12_1.newPos();
+    Dial12_1.update();
+    Dial12_2.newPos();
+    Dial12_2.update();
+    Dial12_3.newPos();
+    Dial12_3.update();
+    Dial13_1.newPos();
+    Dial13_1.update();
+    Dial13_2.newPos();
+    Dial13_2.update();
+    Dial13_3.newPos();
+    Dial13_3.update();
+    Dial13_3.update()
 }
 
-function moveup() {
-    DialTwo_1.speedY = -5;
-    DialTwo_2.speedY = -5;
-    DialTwo_3.speedY = -5; 
+
+function moveup2() {
+    Dial2_1.speedY = -5;
+    Dial2_2.speedY = -5;
+    Dial2_3.speedY = -5; 
 }
 
-function movedown() {
-    DialTwo_1.speedY = 5;
-    DialTwo_2.speedY = 5; 
-    DialTwo_3.speedY = 5;
+function movedown2() {
+    Dial2_1.speedY = 5;
+    Dial2_2.speedY = 5; 
+    Dial2_3.speedY = 5;
 }
 
 
 
-function clearmove() {
-    DialTwo_1.speedX = 0; 
-    DialTwo_1.speedY = 0;
-    DialTwo_2.speedX = 0; 
-    DialTwo_2.speedY = 0; 
-    DialTwo_3.speedX = 0; 
-    DialTwo_3.speedY = 0; 
+function clearmove2() {
+    Dial2_1.speedX = 0; 
+    Dial2_1.speedY = 0;
+    Dial2_2.speedX = 0; 
+    Dial2_2.speedY = 0; 
+    Dial2_3.speedX = 0; 
+    Dial2_3.speedY = 0; 
+}
+
+function moveup3() {
+    Dial3_1.speedY = -5;
+    Dial3_2.speedY = -5;
+    Dial3_3.speedY = -5; 
+}
+
+function movedown3() {
+    Dial3_1.speedY = 5;
+    Dial3_2.speedY = 5; 
+    Dial3_3.speedY = 5;
+}
+
+
+
+function clearmove3() {
+    Dial3_1.speedX = 0; 
+    Dial3_1.speedY = 0;
+    Dial3_2.speedX = 0; 
+    Dial3_2.speedY = 0; 
+    Dial3_3.speedX = 0; 
+    Dial3_3.speedY = 0; 
+}
+
+function moveup4() {
+    Dial4_1.speedY = -5;
+    Dial4_2.speedY = -5;
+    Dial4_3.speedY = -5; 
+}
+
+function movedown4() {
+    Dial4_1.speedY = 5;
+    Dial4_2.speedY = 5; 
+    Dial4_3.speedY = 5;
+}
+
+
+
+function clearmove4() {
+    Dial4_1.speedX = 0; 
+    Dial4_1.speedY = 0;
+    Dial4_2.speedX = 0; 
+    Dial4_2.speedY = 0; 
+    Dial4_3.speedX = 0; 
+    Dial4_3.speedY = 0; 
+}
+
+function moveup5() {
+    Dial5_1.speedY = -5;
+    Dial5_2.speedY = -5;
+    Dial5_3.speedY = -5; 
+}
+
+function movedown5() {
+    Dial5_1.speedY = 5;
+    Dial5_2.speedY = 5; 
+    Dial5_3.speedY = 5;
+}
+
+
+
+function clearmove5() {
+    Dial5_1.speedX = 0; 
+    Dial5_1.speedY = 0;
+    Dial5_2.speedX = 0; 
+    Dial5_2.speedY = 0; 
+    Dial5_3.speedX = 0; 
+    Dial5_3.speedY = 0; 
+}
+
+function moveup6() {
+    Dial6_1.speedY = -5;
+    Dial6_2.speedY = -5;
+    Dial6_3.speedY = -5; 
+}
+
+function movedown6() {
+    Dial6_1.speedY = 5;
+    Dial6_2.speedY = 5; 
+    Dial6_3.speedY = 5;
+}
+
+
+
+function clearmove6() {
+    Dial6_1.speedX = 0; 
+    Dial6_1.speedY = 0;
+    Dial6_2.speedX = 0; 
+    Dial6_2.speedY = 0; 
+    Dial6_3.speedX = 0; 
+    Dial6_3.speedY = 0; 
+}
+
+function moveup7() {
+    Dial7_1.speedY = -5;
+    Dial7_2.speedY = -5;
+    Dial7_3.speedY = -5; 
+}
+
+function movedown7() {
+    Dial7_1.speedY = 5;
+    Dial7_2.speedY = 5; 
+    Dial7_3.speedY = 5;
+}
+
+
+
+function clearmove7() {
+    Dial7_1.speedX = 0; 
+    Dial7_1.speedY = 0;
+    Dial7_2.speedX = 0; 
+    Dial7_2.speedY = 0; 
+    Dial7_3.speedX = 0; 
+    Dial7_3.speedY = 0; 
+}
+
+function moveup8() {
+    Dial8_1.speedY = -5;
+    Dial8_2.speedY = -5;
+    Dial8_3.speedY = -5; 
+}
+
+function movedown8() {
+    Dial8_1.speedY = 5;
+    Dial8_2.speedY = 5; 
+    Dial8_3.speedY = 5;
+}
+
+
+
+function clearmove8() {
+    Dial8_1.speedX = 0; 
+    Dial8_1.speedY = 0;
+    Dial8_2.speedX = 0; 
+    Dial8_2.speedY = 0; 
+    Dial8_3.speedX = 0; 
+    Dial8_3.speedY = 0; 
+}
+
+function moveup9() {
+    Dial9_1.speedY = -5;
+    Dial9_2.speedY = -5;
+    Dial9_3.speedY = -5; 
+}
+
+function movedown9() {
+    Dial9_1.speedY = 5;
+    Dial9_2.speedY = 5; 
+    Dial9_3.speedY = 5;
+}
+
+
+
+function clearmove9() {
+    Dial9_1.speedX = 0; 
+    Dial9_1.speedY = 0;
+    Dial9_2.speedX = 0; 
+    Dial9_2.speedY = 0; 
+    Dial9_3.speedX = 0; 
+    Dial9_3.speedY = 0; 
+}
+
+function moveup10() {
+    Dial10_1.speedY = -5;
+    Dial10_2.speedY = -5;
+    Dial10_3.speedY = -5; 
+}
+
+function movedown10() {
+    Dial10_1.speedY = 5;
+    Dial10_2.speedY = 5; 
+    Dial10_3.speedY = 5;
+}
+
+
+
+function clearmove10() {
+    Dial10_1.speedX = 0; 
+    Dial10_1.speedY = 0;
+    Dial10_2.speedX = 0; 
+    Dial10_2.speedY = 0; 
+    Dial10_3.speedX = 0; 
+    Dial10_3.speedY = 0; 
+}
+
+function moveup11() {
+    Dial11_1.speedY = -5;
+    Dial11_2.speedY = -5;
+    Dial11_3.speedY = -5; 
+}
+
+function movedown11() {
+    Dial11_1.speedY = 5;
+    Dial11_2.speedY = 5; 
+    Dial11_3.speedY = 5;
+}
+
+
+
+function clearmove11() {
+    Dial11_1.speedX = 0; 
+    Dial11_1.speedY = 0;
+    Dial11_2.speedX = 0; 
+    Dial11_2.speedY = 0; 
+    Dial11_3.speedX = 0; 
+    Dial11_3.speedY = 0; 
+}
+
+function moveup12() {
+    Dial12_1.speedY = -5;
+    Dial12_2.speedY = -5;
+    Dial12_3.speedY = -5; 
+}
+
+function movedown12() {
+    Dial12_1.speedY = 5;
+    Dial12_2.speedY = 5; 
+    Dial12_3.speedY = 5;
+}
+
+
+
+function clearmove12() {
+    Dial12_1.speedX = 0; 
+    Dial12_1.speedY = 0;
+    Dial12_2.speedX = 0; 
+    Dial12_2.speedY = 0; 
+    Dial12_3.speedX = 0; 
+    Dial12_3.speedY = 0; 
+}
+
+function moveup13() {
+    Dial13_1.speedY = -5;
+    Dial13_2.speedY = -5;
+    Dial13_3.speedY = -5; 
+}
+
+function movedown13() {
+    Dial13_1.speedY = 5;
+    Dial13_2.speedY = 5; 
+    Dial13_3.speedY = 5;
+}
+
+
+
+function clearmove13() {
+    Dial13_1.speedX = 0; 
+    Dial13_1.speedY = 0;
+    Dial13_2.speedX = 0; 
+    Dial13_2.speedY = 0; 
+    Dial13_3.speedX = 0; 
+    Dial13_3.speedY = 0; 
 }
 
 
 </script>
-<div style="text-align:center;width:480px;">
-  <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
-  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+<div style="width:750px;">
+  <button onmousedown="moveup2()" onmouseup="clearmove2()" ontouchstart="moveup2()">2 UP</button> 
+  <button onmousedown="moveup3()" onmouseup="clearmove3()" ontouchstart="moveup3()">3 UP</button>
+  <button onmousedown="moveup4()" onmouseup="clearmove4()" ontouchstart="moveup4()">4 UP</button>
+  <button onmousedown="moveup5()" onmouseup="clearmove5()" ontouchstart="moveup5()">5 UP</button>
+  <button onmousedown="moveup6()" onmouseup="clearmove6()" ontouchstart="moveup6()">6 UP</button> 
+  <button onmousedown="moveup7()" onmouseup="clearmove7()" ontouchstart="moveup7()">7 UP</button>
+  <button onmousedown="moveup8()" onmouseup="clearmove8()" ontouchstart="moveup8()">8 UP</button>
+  <button onmousedown="moveup9()" onmouseup="clearmove9()" ontouchstart="moveup9()">9 UP</button>
+  <button onmousedown="moveup10()" onmouseup="clearmove10()" ontouchstart="moveup10()">10 UP</button> 
+  <button onmousedown="moveup11()" onmouseup="clearmove11()" ontouchstart="moveup11()">11 UP</button>
+  <button onmousedown="moveup12()" onmouseup="clearmove12()" ontouchstart="moveup12()">12 UP</button>
+  <button onmousedown="moveup13()" onmouseup="clearmove13()" ontouchstart="moveup13()">13 UP</button><br><br>
+  
+  
+  <button onmousedown="movedown2()" onmouseup="clearmove2()" ontouchstart="movedown2()">2 DWN</button>
+  <button onmousedown="movedown3()" onmouseup="clearmove3()" ontouchstart="movedown3()">3 DWN</button>
+  <button onmousedown="movedown4()" onmouseup="clearmove4()" ontouchstart="movedown4()">4 DWN</button>
+  <button onmousedown="movedown5()" onmouseup="clearmove5()" ontouchstart="movedown5()">5 DWN</button>
+  <button onmousedown="movedown6()" onmouseup="clearmove6()" ontouchstart="movedown6()">6 DWN</button>
+  <button onmousedown="movedown7()" onmouseup="clearmove7()" ontouchstart="movedown7()">7 DWN</button>
+  <button onmousedown="movedown8()" onmouseup="clearmove8()" ontouchstart="movedown8()">8 DWN</button>
+  <button onmousedown="movedown9()" onmouseup="clearmove9()" ontouchstart="movedown9()">9 DWN</button>
+  <button onmousedown="movedown10()" onmouseup="clearmove10()" ontouchstart="movedown10()">10 DWN</button>
+  <button onmousedown="movedown11()" onmouseup="clearmove11()" ontouchstart="movedown11()">11 DWN</button>
+  <button onmousedown="movedown12()" onmouseup="clearmove12()" ontouchstart="movedown12()">12 DWN</button>
+  <button onmousedown="movedown13()" onmouseup="clearmove13()" ontouchstart="movedown13()">13 DWN</button>
 </div>
 
 <p>edge case behavior adapted. each wheel never ends now</p>

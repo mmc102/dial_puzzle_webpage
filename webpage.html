@@ -68,7 +68,12 @@ function component(width, height, color, x, y, type) {
     }
     this.newPos = function() {
         this.x += this.speedX;
-        this.y += this.speedY;        
+        this.y += this.speedY; 
+        if (this.y == -270) {
+            this.y = 270
+        } else if (this.y == 270) {
+            this.y = -270
+        }
     }
 }
 
@@ -106,13 +111,15 @@ function clearmove() {
     DialTwo_3.speedX = 0; 
     DialTwo_3.speedY = 0; 
 }
+
+
 </script>
 <div style="text-align:center;width:480px;">
   <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
   <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
 </div>
 
-<p>need to add edge case behavior to loop the second image once it is fully off screen</p>
+<p>edge case behavior adapted. each wheel never ends now</p>
 
 </body>
 </html>

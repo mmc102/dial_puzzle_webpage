@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+    <body style = "text-align:center;">
+        <h1 style = "color:green;" >  
+            Rotate the Dials to Discover the Secret Message  
+        </h1>  
+        <p id = "key" style = 
+         " color: orange; font-size: 18px; font-family: 'Courier New', Courier, monospace; font-weight: bold;"> 
+        <p id = "DialPage" style = 
+            "font-size: 22px; font-family: 'Courier New', Courier, monospace; font-weight: bold;">  
+        </p>
+        <button onclick = "spinDialsUp(dials,1)">2</button> 
+        <button onclick = "spinDialsUp(dials,2)">3</button> 
+        <button onclick = "spinDialsUp(dials,3)">4</button>  
+        <button onclick = "spinDialsUp(dials,4)">5</button> 
+        <button onclick = "spinDialsUp(dials,5)">6</button> 
+        <button onclick = "spinDialsUp(dials,6)">7</button> 
+        <button onclick = "spinDialsUp(dials,7)">8</button> 
+        <button onclick = "spinDialsUp(dials,8)">9</button> 
+        <button onclick = "spinDialsUp(dials,9)">10</button> 
+        <button onclick = "spinDialsUp(dials,10)">11</button> 
+        <button onclick = "spinDialsUp(dials,11)">12</button> 
+        <button onclick = "spinDialsUp(dials,12)">13</button> <br>
+    
+        <button onclick = "spinDialsDown(dials,1)">2</button> 
+        <button onclick = "spinDialsDown(dials,2)">3</button> 
+        <button onclick = "spinDialsDown(dials,3)">4</button>  
+        <button onclick = "spinDialsDown(dials,4)">5</button> 
+        <button onclick = "spinDialsDown(dials,5)">6</button> 
+        <button onclick = "spinDialsDown(dials,6)">7</button> 
+        <button onclick = "spinDialsDown(dials,7)">8</button> 
+        <button onclick = "spinDialsDown(dials,8)">9</button> 
+        <button onclick = "spinDialsDown(dials,9)">10</button> 
+        <button onclick = "spinDialsDown(dials,10)">11</button> 
+        <button onclick = "spinDialsDown(dials,11)">12</button> 
+        <button onclick = "spinDialsDown(dials,12)">13</button> <br>
+          
+        <p id = "DialPage" style = 
+            "font-size: 16px; font-family: 'Courier New', Courier, monospace; font-weight: bold;">  
+        </p>
+        <script>
+      
+
+        // Create one dimensional array 
+        var dials = new Array(13); 
+        
+        // Loop to create 2D array using 1D array 
+         
+        for (var i = 0; i < dials.length; i++) { 
+            dials[i] = []; 
+        } 
+        
+        var s = "turnthetableswoeiaabspmntgtnlponzeeaotrmiislwphbeiuuahsghtaeelonscedcerthniyudthlsbttoedtonnootgttkexihswnvpgmwkaygntbatiiatsrsaiwthtuoasyraurroalifraaembsofiehereleepoh"; 
+        var dials_loc = document.getElementById("DialPage");
+        var key = document.getElementById("key");
+        key.innerHTML = " All dials but the first rotate. When properly aligned,a message will exposed!"
+        // Loop to initilize 2D array elements. 
+        function initDials(arrayz, stringo){
+            var h = 0;
+            for (var i = 0; i < 13; i++) { 
+                for (var j = 0; j < 13; j++) { 
+            
+                    arrayz[i][j] = stringo[h++]; 
+                } 
+            } 
+            return(arrayz)
+        }
+
+
+
+        dials = initDials(dials,s)
+
+
+        // Loop to display the elements of 2D array. 
+        function displayDials(dials){
+            dials_loc.innerHTML = dials[0].join(" |") +  "<br>" + dials[1].join(" |")+  "<br>" + dials[2].join(" |")+ "<br>" +
+            dials[3].join(" |") + "<br>" + dials[4].join(" |") + "<br>" + dials[5].join(" |")+ "<br>" +
+            dials[6].join(" |") + "<br>" + dials[7].join(" |") + "<br>" + dials[8].join(" |")+ "<br>" +
+            dials[9].join(" |") + "<br>" + dials[10].join(" |") + "<br>" + dials[11].join(" |")+ "<br>" +
+            dials[12].join(" |") ;
+        }
+
+
+        displayDials(dials)
+       
+        
+        
+        function spinDialsUp(dials, dial_num){ 
+
+            //go through the dials, make the 0 element the 1, 1 the 2, until we get to 12, which becomes 0 not 13
+            const temp_dials = dials;
+            const store = dials[0][dial_num]
+            for(var i = 0; i < 13; i++){
+                
+                if (i == 12){
+                    dials[i][dial_num] = store;
+                } else {
+                    dials[i][dial_num] = temp_dials[i+1][dial_num];
+                }
+                
+            }
+
+            dials_loc.innerHTML = dials[0].join(" |") + "<br>" + dials[1].join(" |") + "<br>" + dials[2].join(" |")+ "<br>" +
+            dials[3].join(" |") + "<br>" + dials[4].join(" |") + "<br>" + dials[5].join(" |")+ "<br>" +
+            dials[6].join(" |") + "<br>" + dials[7].join(" |") + "<br>" + dials[8].join(" |")+ "<br>" +
+            dials[9].join(" |") + "<br>" + dials[10].join(" |") + "<br>" + dials[11].join(" |")+ "<br>" +                                                                                                                                   
+            dials[12].join(" |") ;
+            
+        }
+        function spinDialsDown(dials, dial_num){ 
+
+            //go through the dials, make the 0 element the 12, 1 the 0 ...
+            store_0 = dials[0][dial_num];
+            store_1 = dials[1][dial_num];
+            store_2 = dials[2][dial_num];
+            store_3 = dials[3][dial_num];
+            store_4 = dials[4][dial_num];
+            store_5 = dials[5][dial_num];
+            store_6 = dials[6][dial_num];
+            store_7 = dials[7][dial_num];
+            store_8 = dials[8][dial_num];
+            store_9 = dials[9][dial_num];
+            store_10 = dials[10][dial_num];
+            store_11 = dials[11][dial_num];
+            store_12 = dials[12][dial_num];
+
+            dials[0][dial_num] = store_12;
+            dials[1][dial_num] = store_0;
+            dials[2][dial_num] = store_1;
+            dials[3][dial_num] = store_2;
+            dials[4][dial_num] = store_3;
+            dials[5][dial_num] = store_4;
+            dials[6][dial_num] = store_5;
+            dials[7][dial_num] = store_6;
+            dials[8][dial_num] = store_7;
+            dials[9][dial_num] = store_8;
+            dials[10][dial_num] = store_9;
+            dials[11][dial_num] = store_10;
+            dials[12][dial_num] = store_11;
+
+                
+            
+
+            dials_loc.innerHTML = dials[0].join(" |") + "<br>" + dials[1].join(" |") + "<br>" + dials[2].join(" |")+ "<br>" +
+            dials[3].join(" |") + "<br>" + dials[4].join(" |") + "<br>" + dials[5].join(" |")+ "<br>" +
+            dials[6].join(" |") + "<br>" + dials[7].join(" |") + "<br>" + dials[8].join(" |")+ "<br>" +
+            dials[9].join(" |") + "<br>" + dials[10].join(" |") + "<br>" + dials[11].join(" |")+ "<br>" +
+            dials[12].join(" |") ;
+
+            }
+
+
+
+        </script>
+    </body>
+</html>

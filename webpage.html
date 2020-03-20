@@ -11,7 +11,36 @@ canvas {
 </head>
 <body onload="startGame()">
 <script>
-var Dial1_1
+
+// Create one dimensional array 
+var gfg = new Array(13); 
+  
+// Loop to create 2D array using 1D array 
+document.write(" <br>"); 
+for (var i = 0; i < gfg.length; i++) { 
+    gfg[i] = []; 
+} 
+var h = 0; 
+var s = "turnthetableswoeiaabspmntgtnlponzeeaotrmiislwphbeiuuahsghtaeelonscedcerthniyudthlsbttoedtonnootgttkexihswnvpgmwkaygntbatiiatsrsaiwthtuoasyraurroalifraaembsofiehereleepoh"; 
+  
+// Loop to initilize 2D array elements. 
+for (var i = 0; i < 13; i++) { 
+    for (var j = 0; j < 13; j++) { 
+  
+        gfg[i][j] = s[h++]; 
+    } 
+} 
+  
+// Loop to display the elements of 2D array. 
+for (var i = 0; i < 13; i++) { 
+    for (var j = 0; j < 13; j++) 
+  
+    { 
+        document.write(gfg[i][j] + " "); 
+    } 
+    document.write("<br>"); 
+} 
+var Dial1_1;
 
 var Dial2_1;
 var Dial2_2;

@@ -49,21 +49,24 @@ canvas {
         </p>
         <script>
       
-
-        // Create one dimensional array 
+        // Create 1D array 
         var dials = new Array(13); 
         
-        // Loop to create 2D array using 1D array 
+        // create 2D array using 1D array 
          
         for (var i = 0; i < dials.length; i++) { 
             dials[i] = []; 
         } 
         
+        //variables 
         var s = "turnthetableswoeiaabspmntgtnlponzeeaotrmiislwphbeiuuahsghtaeelonscedcerthniyudthlsbttoedtonnootgttkexihswnvpgmwkaygntbatiiatsrsaiwthtuoasyraurroalifraaembsofiehereleepoh"; 
         var dials_loc = document.getElementById("DialPage");
         var key = document.getElementById("key");
+        
+        //push a header, test of innerHTML mostly 
         key.innerHTML = " All dials but the first rotate. When properly aligned,a message will exposed!"
-        // Loop to initilize 2D array elements. 
+        
+        //initilize 2D array elements. 
         function initDials(arrayz, stringo){
             var h = 0;
             for (var i = 0; i < 13; i++) { 
@@ -80,7 +83,7 @@ canvas {
         dials = initDials(dials,s)
 
 
-        // Loop to display the elements of 2D array. 
+        // Display the elements of 2D array w. HTMLinner 
         function displayDials(dials){
             dials_loc.innerHTML = dials[0].join(" |") +  "<br>" + dials[1].join(" |")+  "<br>" + dials[2].join(" |")+ "<br>" +
             dials[3].join(" |") + "<br>" + dials[4].join(" |") + "<br>" + dials[5].join(" |")+ "<br>" +
@@ -89,7 +92,7 @@ canvas {
             dials[12].join(" |") ;
         }
 
-
+        //call function for inital loading when page loads 
         displayDials(dials)
        
         
@@ -116,9 +119,11 @@ canvas {
             dials[12].join(" |") ;
             
         }
+
+
         function spinDialsDown(dials, dial_num){ 
 
-            //go through the dials, make the 0 element the 12, 1 the 0 ...
+            //spin in opposite direction, used a differnt function. easier to concieve but more annoying to actually build.
             store_0 = dials[0][dial_num];
             store_1 = dials[1][dial_num];
             store_2 = dials[2][dial_num];

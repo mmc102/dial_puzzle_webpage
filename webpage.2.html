@@ -14,7 +14,7 @@ canvas {
             Rotate the Dials to Discover the Secret Message  
         </h1>  
         <p id = "key" style = 
-         " color: orange; font-size: 18px; font-family: 'Courier New', Courier, monospace; font-weight: bold;"> 
+         " color: orange; font-size: 22px; font-family: 'Courier New', Courier, monospace; font-weight: bold;"> 
         <p id = "DialPage" style = 
             "font-size: 22px; font-family: 'Courier New', Courier, monospace; font-weight: bold;">  
         </p>
@@ -44,9 +44,7 @@ canvas {
         <button onclick = "spinDialsDown(dials,11)">12</button> 
         <button onclick = "spinDialsDown(dials,12)">13</button> <br>
           
-        <p id = "DialPage" style = 
-            "font-size: 16px; font-family: 'Courier New', Courier, monospace; font-weight: bold;">  
-        </p>
+        
         <script>
       
         // Create 1D array 
@@ -64,7 +62,7 @@ canvas {
         var key = document.getElementById("key");
         
         //push a header, test of innerHTML mostly 
-        key.innerHTML = " All dials but the first rotate. When properly aligned,a message will be exposed!"
+        key.innerHTML = " All dials but the first rotate. When properly aligned,a message will be exposed! <br>  |1 | 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13"
         
         //initilize 2D array elements. 
         function initDials(arrayz, stringo){
